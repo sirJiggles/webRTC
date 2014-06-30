@@ -1,0 +1,30 @@
+
+/* ================ MAIN LAYOUT ELEMENTS ================ */
+
+body,html{
+    height:100%;
+    width:100%;
+    @include sans-font();
+}
+
+body {
+    position:relative;
+    overflow: hidden;
+    margin:0;
+}
+
+.container{
+    height:100%;
+}
+
+
+*{
+    @include border-box('#{$siteUrl}/assets/js/vendor/border-box.htc');
+}
+
+.clear-both{
+    clear:both;
+    font-size:0px;
+    line-height:0px;
+    height:0px;
+}
