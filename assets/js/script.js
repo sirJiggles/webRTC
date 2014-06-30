@@ -27,6 +27,18 @@ var webRTCApp = function(){
   	} else {
 	    this.localFeed.src = stream;
   	}
+
+
+  	// handle the audio data from the local stream
+  	window.AudioContext = window.AudioContext || window.webkitAudioContext;
+    var audioContext = new AudioContext();
+
+    // Create an AudioNode from the stream
+    var mediaStreamSource = audioContext.createMediaStreamSource(stream);
+
+    // Connect it to destination to hear yourself
+    // or any other node for processing!
+    mediaStreamSource.connect(audioContext.destination);
 };
 
 // error callback for user media :D
@@ -40,7 +52,6 @@ webRTCApp.prototype.initEvents = function(){
 	// click events for filters
 	$('.controlls a').click(function(evnt){
 		evnt.preventDefault();
-		console.log($(this).text());
 		app.localFeed.removeClass().addClass($(this).text());
 	});
 
@@ -55,7 +66,7 @@ window.onload = (function () {
 	app.remoteFeed = $('#remoteFeed');
 
 	var constraints = {
-		audio:false, 
+		audio:true, 
 		video:true
 	};
 
