@@ -1,1 +1,213 @@
-.icons-sprite{background:url('../img/icons-s2dcd6d3b3a.png') no-repeat}.icons-2x-sprite{background:url('../img/icons-2x-s15c5cd744d.png') no-repeat}body,html{height:100%;width:100%;font-family:'Source Sans Pro', sans-serif;font-weight:400}body{position:relative;overflow:hidden;margin:0}.container{height:100%}*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;*behavior:url("http://localhost:5000/assets/js/vendor/border-box.htc")}.clear-both{clear:both;font-size:0px;line-height:0px;height:0px}.index h1{width:100%;text-align:center}.index .controlls{list-style-type:none;padding:0;margin:0;width:100%;float:left;margin-top:20px}.index .controlls li{float:left;padding:0;margin:0 10px 0 0}.index video{float:left;display:block;width:50%}.index video.grayscale{-webkit-filter:grayscale(100%);-moz-filter:grayscale(100%);filter:grayscale(100%)}.index video.sepia{-webkit-filter:sepia(100%);-moz-filter:sepia(100%);filter:sepia(100%)}.index video.saturate{-webkit-filter:saturate(100%);-moz-filter:saturate(100%);filter:saturate(100%)}.index video.invert{-webkit-filter:invert(100%);-moz-filter:invert(100%);filter:invert(100%)}.index video.blur{-webkit-filter:blur(5px);-moz-filter:blur(5px);filter:blur(5px)}
+.icons-sprite {
+  background: url('../img/icons-s2dcd6d3b3a.png') no-repeat;
+}
+
+.icons-2x-sprite {
+  background: url('../img/icons-2x-s15c5cd744d.png') no-repeat;
+}
+
+/* ================ MAIN LAYOUT ELEMENTS ================ */
+body, html {
+  height: 100%;
+  width: 100%;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+}
+
+body {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  height: 100%;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  *behavior: url("http://localhost:5000/assets/js/vendor/border-box.htc");
+}
+
+.clear-both {
+  clear: both;
+  font-size: 0px;
+  line-height: 0px;
+  height: 0px;
+}
+
+/* LESS THAN DESKTOP LARGE */
+/* LESS THAN DESKTOP */
+/* LESS THAN TABLET */
+/* LESS THAN MOBILE LANDSCAPE */
+/*
+ * jQuery FlexSlider v2.2.0
+ * http://www.woothemes.com/flexslider/
+ *
+ * Copyright 2012 WooThemes
+ * Free to use under the GPLv2 license.
+ * http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * Contributing author: Tyler Smith (@mbmufffin)
+ */
+/* Browser Resets
+*********************************/
+.flex-container a:active,
+.flexslider a:active,
+.flex-container a:focus,
+.flexslider a:focus {
+  outline: none;
+}
+
+.slides,
+.flex-control-nav,
+.flex-direction-nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* FlexSlider Necessary Styles
+*********************************/
+.flexslider {
+  margin: 0;
+  padding: 0;
+}
+
+.flexslider .slides > li {
+  display: none;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Hide the slides before the JS is loaded. Avoids image jumping */
+.flexslider .slides img {
+  width: 100%;
+  display: block;
+}
+
+.flex-pauseplay span {
+  text-transform: capitalize;
+}
+
+/* Clearfix for the .slides element */
+.slides:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+html[xmlns] .slides {
+  display: block;
+}
+
+* html .slides {
+  height: 1%;
+}
+
+/* No JavaScript Fallback */
+/* If you are not using another script, such as Modernizr, make sure you
+ * include js that eliminates this class on page load */
+.no-js .slides > li:first-child {
+  display: block;
+}
+
+/* index page */
+.index .controlls {
+  bottom: 0px;
+  left: 0px;
+  z-index: 2;
+  width: 100%;
+  position: fixed;
+  height: 50px;
+  background-color: blue;
+}
+.index .controlls .flexslider {
+  width: 20%;
+  position: absolute;
+}
+.index .controlls .flexslider.right {
+  right: 0px;
+}
+.index .controlls .flexslider.left {
+  left: 0px;
+}
+.index .controlls .flexslider ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.index .controlls .flexslider ul li.flex-active-slide a {
+  background-color: red;
+  color: white;
+}
+.index .controlls .flexslider ul li a {
+  display: block;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  line-height: 50px;
+  height: 50px;
+  background-color: white;
+  color: black;
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+.index .controlls #record {
+  width: 60px;
+  height: 60px;
+  background-color: red;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  border-radius: 30px;
+  position: absolute;
+  left: 50%;
+  margin-left: -30px;
+  top: -20px;
+}
+.index .controlls #record.stop {
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  -o-border-radius: 0px;
+  border-radius: 0px;
+}
+.index video {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+.index video.grayscale {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+.index video.sepia {
+  -webkit-filter: sepia(100%);
+  -moz-filter: sepia(100%);
+  filter: sepia(100%);
+}
+.index video.saturate {
+  -webkit-filter: saturate(100%);
+  -moz-filter: saturate(100%);
+  filter: saturate(100%);
+}
+.index video.invert {
+  -webkit-filter: invert(100%);
+  -moz-filter: invert(100%);
+  filter: invert(100%);
+}
+.index video.blur {
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  filter: blur(5px);
+}
