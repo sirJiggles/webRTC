@@ -146,6 +146,15 @@ html[xmlns] .slides {
 .index {
   background-color: black;
 }
+.index:before {
+  color: #2b2b2b;
+  font-size: 100px;
+  left: 50%;
+  margin-left: -45px;
+  top: 50%;
+  margin-top: -65px;
+  position: absolute;
+}
 .index .controlls {
   bottom: 0px;
   left: 0px;
@@ -192,7 +201,7 @@ html[xmlns] .slides {
   width: 100%;
   text-align: center;
   text-decoration: none;
-  top: 22px;
+  top: 24px;
   position: relative;
   font-size: 14px;
   line-height: 14px;

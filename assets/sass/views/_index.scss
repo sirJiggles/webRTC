@@ -5,6 +5,17 @@ $controllsGrey: #2b2b2b;
 
 	background-color: black;
 
+	&:before {
+		// cam icon
+		color: $controllsGrey;
+		font-size: 100px;
+		left: 50%;
+		margin-left: -45px;
+		top: 50%;
+		margin-top: -65px;
+		position: absolute;
+	}
+
 	// filter controlls
 	.controlls {
 		bottom:0px;
