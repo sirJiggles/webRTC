@@ -10,8 +10,8 @@ app.configure(function(){
 app.get('/', function(req, res){
 	res.sendfile('index.html');
 });
-app.get('/faceoff', function(req, res){
-	res.sendfile('face-swap.html');
+app.get('/track', function(req, res){
+	res.sendfile('track-face.html');
 });
 
 

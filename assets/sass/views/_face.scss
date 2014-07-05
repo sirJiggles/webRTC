@@ -1,0 +1,33 @@
+// Styles just for the face swap page (namespace faceoff)
+.face {
+	
+	#canvasWrapper{
+	    width:100%;
+	    height:100%;
+
+	    #inner{
+	        position:absolute;
+	        left:50%;
+	        top:50%;
+	        -webkit-background-size: 100% 100%;
+	        -moz-background-size: 100% 100%;
+	        -o-background-size: 100% 100%;
+	        background-size: 100% 100%;
+	    }
+
+	    canvas,
+	    video{
+	        position:absolute;
+	        width:100%;
+	        height:100%;
+	    }
+
+	    canvas {
+	    	z-index: 2;
+	    }
+	    video{
+	    	z-index: 1;
+	    }
+	}
+
+}
