@@ -308,3 +308,20 @@ html[xmlns] .slides {
   min-height: 100%;
   min-width: 100%;
 }
+
+.faceoff #canvasWrapper {
+  width: 100%;
+  height: 100%;
+}
+.faceoff #canvasWrapper #inner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  background-size: 100% 100%;
+}
+.faceoff #canvasWrapper canvas {
+  position: absolute;
+}
