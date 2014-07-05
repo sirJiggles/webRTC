@@ -46,7 +46,10 @@
     <!--[if (gt IE 9)|!(IE)]><!--> <body> <!--<![endif]-->
 
         <div class="container index">
-            <video src="" id="localFeed" autoplay="true"></video>
+            <div id="localFeedWrapper">
+                <video src="" id="localFeed" autoplay="true"></video>
+            </div>
+            <video src="" id="bgFeed" autoplay="true" class="blur"></video>
 
             <div class="controlls">
 
@@ -61,18 +64,7 @@
                     </ul>
                 </div>
 
-                <a id="record" href="#" title="Record video"></a>
-
-                <div class="flexslider right">
-                    <ul class="slides">
-                        <li><a href="#">none</a></li>
-                        <li><a href="#">invert</a></li>
-                        <li><a href="#">grayscale</a></li>
-                        <li><a href="#">sepia</a></li>
-                        <li><a href="#">saturate</a></li>
-                        <li><a href="#">blur</a></li>
-                    </ul>
-                </div>
+                <a id="record" href="#" title="Record video" class="icon-camera"></a>
 
             </div>
 
