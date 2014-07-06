@@ -71,7 +71,7 @@ webRTCApp.prototype.initEvents = function(){
 		$(this).addClass('active');
 
 		var constraints = {
-			audio:false, 
+			audio:true, 
 			video:true
 		};
 
