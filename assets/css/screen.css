@@ -356,8 +356,10 @@ html[xmlns] .slides {
   -ms-border-radius: 30px;
   -o-border-radius: 30px;
   border-radius: 30px;
-  position: absolute;
-  top: 2px;
+  display: block;
+  float: left;
+  position: relative;
+  margin: 2px 0 0 10px;
 }
 .chat .phone-controls:after {
   position: absolute;
@@ -383,21 +385,30 @@ html[xmlns] .slides {
   position: absolute;
   top: 11px;
 }
-.chat .phone-controls.icon-phone {
-  left: 10px;
+.chat .phone-controls:hover, .chat .phone-controls.active {
+  border: 2px solid #acacac;
+}
+.chat .phone-controls:hover:after, .chat .phone-controls.active:after {
+  background-color: #0f0f0f;
 }
 .chat .phone-controls.icon-phone:before {
   color: #004d00;
 }
-.chat .phone-controls.icon-phone:hover:before {
+.chat .phone-controls.icon-phone:hover:before, .chat .phone-controls.icon-phone.active:before {
   color: green;
-}
-.chat .phone-controls.icon-hangup {
-  right: 10px;
 }
 .chat .phone-controls.icon-hangup:before {
   color: #cc0000;
 }
-.chat .phone-controls.icon-hangup:hover:before {
+.chat .phone-controls.icon-hangup:hover:before, .chat .phone-controls.icon-hangup.active:before {
   color: red;
+}
+.chat video#localFeed {
+  position: fixed;
+  bottom: 20px;
+  right: 1%;
+  top: auto;
+  z-index: 4;
+  width: 30%;
+  height: auto;
 }
