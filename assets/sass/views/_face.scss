@@ -1,5 +1,11 @@
 // Styles just for the face swap page (namespace faceoff)
 .face {
+
+	&.swap {
+		video {
+			//display: none;
+		}
+	}
 	
 	#canvasWrapper{
 	    width:100%;
@@ -27,6 +33,10 @@
 	    }
 	    video{
 	    	z-index: 1;
+	    }
+
+	    #debugCanvas {
+	    	z-index: 3;
 	    }
 	}
 

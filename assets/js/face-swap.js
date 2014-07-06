@@ -6,6 +6,7 @@
  * 
  * @depends vendor/jquery.min.js
  * @depends vendor/adaptor.js
+ * @depends app/optimus-head.js
  * @depends vendor/clmtracker.min.js
  * @depends vendor/pModel.js
  */
@@ -16,9 +17,14 @@
 // class for all the functions
 var webRTCApp = function(){
 
-	// set up our canvas tag
+	// set up our canvas tag (just need a handle for resize here)
 	this.canvas = document.getElementById('canvas');
 	this.ctx = this.canvas.getContext('2d');
+
+	// debug mode
+	this.debug = false;
+	this.debugCanvas = document.getElementById('debugCanvas');
+	this.debugCtx = this.debugCanvas.getContext('2d');
 
 	// settings for animation loop
 	this.interval = 1000 / 60;
@@ -46,12 +52,13 @@ var webRTCApp = function(){
 	this.ctracker = new clm.tracker({useWebGL : true});
 	this.ctracker.init(pModel);
 
+	// create a new instance of the optimus prime head
+	this.optimus = new OptimusHead();
+
 };
 
 // events like the click on the controls
 webRTCApp.prototype.initEvents = function(){
-
-	var that = this;
 
 	// clicking record
 	$('#record').click(function(evnt){
@@ -70,7 +77,7 @@ webRTCApp.prototype.initEvents = function(){
 	});
 };
 
-webRTCApp.prototype.track = function(){
+function track(){
 	// shim layer with setTimeout fallback
 	window.requestAnimFrame = (function(){
 	  return  window.requestAnimationFrame       ||
@@ -89,9 +96,18 @@ webRTCApp.prototype.track = function(){
 		// if at least 1 frame has passed in time (1000/fps)
 		if(app.delta > app.interval) {
 
-			app.ctx.clearRect(0, 0, app.canvas.width, app.canvas.height);
-		    if (app.ctracker.getCurrentPosition()) {
-				app.ctracker.draw(app.canvas);
+			
+			var positions = app.ctracker.getCurrentPosition();
+
+		    if (positions) {
+		    	// draw the head of optimus on the canvas tag .....
+		    	app.ctx.clearRect(0, 0, app.canvas.width, app.canvas.height);
+		    	app.optimus.update(positions);
+
+		    	if(app.debug){
+		    		app.debugCtx.clearRect(0, 0, app.canvas.width, app.canvas.height);
+		    		app.ctracker.draw(app.debugCanvas);
+	    		}
 			}
 			// set the last time
 			app.lastTime = app.currentTime - (app.delta % app.interval);
@@ -132,6 +148,11 @@ function resizeWindowCallback(){
 	app.canvas.height = app.height;
 	app.vid.width = app.width;
 	app.vid.height = app.height;
+
+	if(app.debug){
+		this.debugCanvas.width = app.width;
+		this.debugCanvas.height = app.height;
+	}
 }
 
 function gotLocalStream (stream){
@@ -142,7 +163,7 @@ function gotLocalStream (stream){
 	app.vid.src = (window.URL) ? window.URL.createObjectURL(stream) : stream;
 
 	app.ctracker.start(app.vid);
-	app.track();
+	track();
 	
 };
 

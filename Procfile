@@ -1,2 +1,2 @@
 server: node server.js
-grunt: grunt build
+grunt: grunt dev
