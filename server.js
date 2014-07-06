@@ -16,6 +16,9 @@ app.get('/track', function(req, res){
 app.get('/swap', function(req, res){
 	res.sendfile('face-swap.html');
 });
+app.get('/chat', function(req, res){
+	res.sendfile('video-chat.html');
+});
 
 // now start the server
 var server = app.listen(5000, function(){

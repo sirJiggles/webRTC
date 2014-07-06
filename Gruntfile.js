@@ -15,6 +15,7 @@ module.exports = function(grunt) {
   	var jsLocations= ['assets/js/script.js',
   					'assets/js/track.js',
   					'assets/js/face-swap.js',
+  					'assets/js/video-chat.js',
 					'assets/js/vendor/*.js',
 					'assets/js/app/*.js',
 					'assets/js/app/**/*.js'];
@@ -53,12 +54,14 @@ module.exports = function(grunt) {
 			dev: {
 				command: ['juicer merge -s assets/js/script.js --force -m ""',
 						   'juicer merge -s assets/js/track-face.js --force -m ""',
-						   'juicer merge -s assets/js/face-swap.js --force -m ""'].join('&&')
+						   'juicer merge -s assets/js/face-swap.js --force -m ""',
+						   'juicer merge -s assets/js/video-chat.js --force -m ""'].join('&&')
 			},
 			build: {
 				command: ['juicer merge -s assets/js/script.js --force',
 						  'juicer merge -s assets/js/track-face.js --force',
-						  'juicer merge -s assets/js/face-swap.js --force'].join('&&')
+						  'juicer merge -s assets/js/face-swap.js --force',
+						  'juicer merge -s assets/js/video-chat.js --force'].join('&&')
 			}
 		},
 		watch: {

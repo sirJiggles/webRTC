@@ -1,0 +1,59 @@
+// styles for the video chat page
+.chat {
+	
+	.phone-controls {
+
+		$recordLight: #acacac;
+		$recordDark: #0f0f0f;
+		width: 60px;
+		height: 60px;
+		background-color: $controllsGrey;
+		border: 2px solid $recordDark;
+		@include border-radius(30px);
+		position: absolute;
+		top: 2px;
+
+		&:after {
+			@include border-shape(50px, 50px);
+			background-color: $recordLight;
+			@include border-radius(25px);
+			top: 3px;
+			left: 3px;
+		}
+
+
+		&:before {
+			font-size: 30px;
+			z-index: 1;
+			left: 13px;
+			position: absolute;
+			top: 11px;
+		}
+
+		&.icon-phone{
+			left: 10px;
+
+			&:before {
+				color: darken(green, 10%);
+			}
+			&:hover {
+				&:before {
+					color: green;
+				}
+			}
+		}
+		&.icon-hangup {
+			right: 10px;
+
+			&:before {
+				color: darken(red, 10%);
+			}
+			&:hover {
+				&:before {
+					color: red;
+				}
+			}
+		}
+
+	}
+}
