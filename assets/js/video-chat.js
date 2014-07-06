@@ -8,8 +8,9 @@
  * @depends vendor/adaptor.js
  */
 
- // the global app var
- var app = {};
+// the global app and socket vars
+var app = {},
+	socket = io.connect();
 
 // class for all the functions
 var webRTCApp = function(){
@@ -52,16 +53,14 @@ webRTCApp.prototype.initEvents = function(){
 		}
 		// can make the call, proceed
 		$(this).addClass('active');
-		$('#hangup').removeClass('active');
 		settupPeerConnection();
 	});
 
 	$('#hangup').click(function(evnt){
 		evnt.preventDefault();
-		if(!$('#call').hasClass('active') || $(this).hasClass('active')){
+		if(!$('#call').hasClass('active')){
 			return false;
 		}
-		$(this).addClass('active');
 		$('#call').removeClass('active');
 		endCall();
 	})
@@ -91,6 +90,7 @@ function endCall(){
 	app.remotePeerConnection.close();
 	app.localPeerConnection = null;
 	app.remotePeerConnection = null;
+	socket.emit('leave', app.room);
 }
 
 
@@ -113,8 +113,10 @@ function gotLocalIceCandidate(evnt){
 	}
 }
 
+// the description is the sdp (session description protocal)
 function gotLocalDescription(description){
 	app.localPeerConnection.setLocalDescription(description);
+	// description is the same as we ar on the same page
 	app.remotePeerConnection.setRemoteDescription(description);
 	app.remotePeerConnection.createAnswer(gotRemoteDescription,errorCallback);
 }
@@ -145,4 +147,29 @@ function errorCallback(error){
 // On load
 $(window).load(function(){
 	app = new webRTCApp();
+
+	// get user input for room name
+	app.room = prompt("Enter room name:");
+
+	if (app.room !== "") {
+		console.log('Joining room ' + app.room);
+		socket.emit('create or join', app.room);
+	}
+
+	socket.on('full', function(room){
+	  console.log('Room ' + room + ' is full');
+	});
+
+	socket.on('empty', function(room){
+		console.log('Room ' + room + ' is empty');
+	});
+
+	socket.on('join', function(room){
+		console.log('Making request to join room ' + room);
+		console.log('You are the initiator!');
+	});
+
+	socket.on('left', function(room){
+		console.log('left room' + room);
+	});
 });
