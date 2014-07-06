@@ -6,6 +6,7 @@
  * 
  * @depends vendor/jquery.min.js
  * @depends vendor/adaptor.js
+ * @depends app/sound-modifier.js
  * @depends app/optimus-head.js
  * @depends vendor/clmtracker.min.js
  * @depends vendor/pModel.js
@@ -54,6 +55,9 @@ var webRTCApp = function(){
 
 	// create a new instance of the optimus prime head
 	this.optimus = new OptimusHead();
+
+	// create a new instance of the audio modifier
+	this.soundModifier = new soundModifier();
 
 };
 
@@ -164,6 +168,9 @@ function gotLocalStream (stream){
 
 	app.ctracker.start(app.vid);
 	track();
+
+	// handle the audio data from the local stream
+	app.soundModifier.init();
 	
 };
 

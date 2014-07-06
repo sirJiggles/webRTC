@@ -23,7 +23,7 @@ OptimusHead.prototype.update = function(positions) {
 
 	// distance from 0x to 14x (ear to ear)
 	var faceWidth = positions[14][0] - positions[0][0],
-		factor = faceWidth / 3,
+		factor = faceWidth / 2.5,
 		centerX = positions[41][0],
 		centerY = positions[41][1],
 		rotateBy = positions[0][1] - positions[14][1];
@@ -38,7 +38,7 @@ OptimusHead.prototype.update = function(positions) {
 	this.ctx.translate(centerX, centerY);
 
 	// rotate the ctx
-	this.ctx.rotate(-(rotateBy / 1.4) * (Math.PI / 180) );
+	this.ctx.rotate(-(rotateBy / 2) * (Math.PI / 180) );
 
 	// translate back to top left
 	this.ctx.translate(-centerX,-centerY);
@@ -49,7 +49,7 @@ OptimusHead.prototype.update = function(positions) {
 						0, 
 						this.width, 
 						this.height, 
-						(centerX - (this.outputWidth / 2)) - (factor / 3.4), 
+						(centerX - (this.outputWidth / 2)) - (factor / 9), 
 						(centerY - (this.outputHeight / 2)) - (factor / 1.4), 
 						this.outputWidth, 
 						this.outputHeight);

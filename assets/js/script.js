@@ -31,19 +31,6 @@ webRTCApp.prototype.gotLocalStream = function(stream) {
 	    this.bgFeed.src = stream;
   	}
 
-
-  	// handle the audio data from the local stream
-  	/*window.AudioContext = window.AudioContext || window.webkitAudioContext;
-    var audioContext = new AudioContext();
-
-    // Create an AudioNode from the stream
-    var mediaStreamSource = audioContext.createMediaStreamSource(stream);
-
-    // Connect it to destination to hear yourself
-    // or any other node for processing!
-    mediaStreamSource.connect(audioContext.destination);*/
-
-    // start running the remote connection test
 };
 
 
